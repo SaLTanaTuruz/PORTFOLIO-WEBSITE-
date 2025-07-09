@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Certificates - Saltanat Uruz</title>
+    <link rel="stylesheet" href="port.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <a href="details.html" class="see-all-btn" style="margin: 32px 0 18px 0; display: inline-block;">&#8592; Back to Portfolio</a>
+        <section class="certificates-modern">
+            <h2>All Certificates</h2>
+            <div class="certificates-gallery">
+                <div class="certificate-card"><img src="certificates/Innovortax.png" alt="Certificate" class="certificate-img" />Innovortax 1.0</div>
+                <div class="certificate-card"><img src="certificates/5.png" alt="Certificate" class="certificate-img" />Slam poetry</div>
+                <div class="certificate-card"><img src="certificates/22.png" alt="Certificate" class="certificate-img" />Tech-Bio Ideathon</div>
+                <div class="certificate-card"><img src="certificates/ML certificate.png" alt="Certificate" class="certificate-img" />6 Weeks ML Internship</div>
+
+                <div class="certificate-card"><img src="certificates/inno.jpg" alt="Certificate" class="certificate-img" />Top 4 Teams in INNOVORTAX 2.0</div>
+               
+                <div class="certificate-card"><img src="certificates/photo.png" alt="Certificate" class="certificate-img" />Global Photography Contest</div>
+                <div class="certificate-card"><img src="certificates/Essay writting competition.JPG" alt="Certificate" class="certificate-img" />National Essay Writting competition</div>
+                <div class="certificate-card"><img src="certificates/scalar coding.png" alt="Certificate" class="certificate-img" />National Coding League 2024 </div>
+                <div class="certificate-card"><img src="certificates/Dellolite.png" alt="Certificate" class="certificate-img" />Technology Job stimulation @Dellolite</div>
+
+                <div class="certificate-card"><img src="certificates/dekh.jpg" alt="Certificate" class="certificate-img" />1st Prize in Dekh Tamasha </div>
+                 <div class="certificate-card"><img src="certificates/Badlaav.jpg" alt="Certificate" class="certificate-img" />1st Prize in Badlaav'24 </div>
+                 <div class="certificate-card"><img src="certificates/2024.jpg" alt="Certificate" class="certificate-img" />Bharat Rang Mahotsav 2024 </div>
+
+                <div class="certificate-card"><img src="certificates/LEANIN.png" alt="Certificate" class="certificate-img" />Lean In hack 6.0</div>
+                <div class="certificate-card"><img src="certificates/postman certificate.png" alt="Certificate" class="certificate-img" />Postman API</div>
+                <div class="certificate-card"><img src="certificates/IEEE.png" alt="Certificate" class="certificate-img" />WIEgnite Hackathon</div>
+                <div class="certificate-card"><img src="certificates/SEEK.png" alt="Certificate" class="certificate-img" />Seek cource @UNESCO MGIEP</div>
+
+                <div class="certificate-card"><img src="certificates/samsung certificate.png" alt="Certificate" class="certificate-img" />Samsung Solve For Tommorow 2025</div>
+                <div class="certificate-card"><img src="certificates/GFG.jpg" alt="Certificate" class="certificate-img" />HackFest in GreeksForGeeks</div>
+                <div class="certificate-card"><img src="certificates/kho kho.jpg" alt="Certificate" class="certificate-img" />KHO-KHO Tournament</div>
+                <div class="certificate-card"><img src="certificates/Zuno Fellowship certificate.jpg" alt="Certificate" class="certificate-img" />Zuno Fellowship Program</div>
+                <div class="certificate-card"><img src="certificates/Flipkart Grid .png" alt="Certificate" class="certificate-img" />Flipkart Grid 6.0</div>
+                <div class="certificate-card"><img src="certificates/saltanat uruz.png" alt="Certificate" class="certificate-img" />Poster Making competition</div>
+                <div class="certificate-card"><img src="certificates/kho.jpg" alt="Certificate" class="certificate-img" />Kho-Kho Tournament</div>
+                <div class="certificate-card"><img src="certificates/b.jpg" alt="Certificate" class="certificate-img" />BasketBall Tournament</div>
+
+                <div class="certificate-card"><img src="certificates/download.jpeg" alt="Certificate" class="certificate-img" />Pledge @NARCOTICS CONTROL</div>
+                <div class="certificate-card"><img src="certificates/TATA.png" alt="Certificate" class="certificate-img" />Tata Cruicible Campus Quiz 2024</div>
+                <div class="certificate-card"><img src="certificates/AIst.jpg" alt="Certificate" class="certificate-img" />Artificial Intelligence and speech Technology</div>
+            
+            </div>
+        </section>
+    </div>
+    <div id="certificate-modal" class="certificate-modal">
+      <span class="certificate-modal-arrow" id="certificate-modal-prev">&#8592;</span>
+      <img class="certificate-modal-img" id="certificate-modal-img" src="" alt="Full Certificate" />
+      <span class="certificate-modal-arrow" id="certificate-modal-next">&#8594;</span>
+      <span class="certificate-modal-close" id="certificate-modal-close">&times;</span>
+      <div class="certificate-modal-caption" id="certificate-modal-caption"></div>
+    </div>
+    <script>
+    // Certificate modal logic with swipe
+    const certImgs = Array.from(document.querySelectorAll('.certificate-img'));
+    const certCards = Array.from(document.querySelectorAll('.certificate-card'));
+    let currentCertIdx = 0;
+    function openCertModal(idx) {
+      const img = certImgs[idx];
+      document.getElementById('certificate-modal-img').src = img.src;
+      // Try to get caption: text after image in .certificate-card
+      let caption = '';
+      if (certCards[idx]) {
+        caption = certCards[idx].textContent.replace(/^[\s\S]*?\)/, '').trim();
+        if (!caption) caption = img.alt;
+      }
+      document.getElementById('certificate-modal-caption').textContent = caption;
+      document.getElementById('certificate-modal').style.display = 'flex';
+      currentCertIdx = idx;
+    }
+    certImgs.forEach((img, idx) => {
+      img.addEventListener('click', function() {
+        openCertModal(idx);
+      });
+    });
+    document.getElementById('certificate-modal-close').onclick = function() {
+      document.getElementById('certificate-modal').style.display = 'none';
+    };
+    document.getElementById('certificate-modal').onclick = function(e) {
+      if (e.target === this) this.style.display = 'none';
+    };
+    document.getElementById('certificate-modal-prev').onclick = function(e) {
+      e.stopPropagation();
+      currentCertIdx = (currentCertIdx - 1 + certImgs.length) % certImgs.length;
+      openCertModal(currentCertIdx);
+    };
+    document.getElementById('certificate-modal-next').onclick = function(e) {
+      e.stopPropagation();
+      currentCertIdx = (currentCertIdx + 1) % certImgs.length;
+      openCertModal(currentCertIdx);
+    };
+    // Optional: keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('certificate-modal').style.display === 'flex') {
+        if (e.key === 'ArrowLeft') document.getElementById('certificate-modal-prev').click();
+        if (e.key === 'ArrowRight') document.getElementById('certificate-modal-next').click();
+        if (e.key === 'Escape') document.getElementById('certificate-modal-close').click();
+      }
+    });
+    </script>
+</body>
+</html> 

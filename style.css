@@ -1,0 +1,88 @@
+:root {
+  --cream: #FFF8F0;
+  --rose: #E8A9A9;
+  --green: #A2B29F;
+  --text: #2F3E46;
+}
+#a1ceac
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Satisfy', cursive;
+  color: var(--text);
+}
+
+/* Updated hero with diagonal background */
+.hero {
+  /* background: linear-gradient(
+    60deg,
+    var(--cream) 50%,
+    var(--rose) 50%
+  ); */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.content {
+  text-align: left;
+  margin-top: 50px;
+}
+
+.content h1 {
+  font-size: 7rem;
+  color: var(--text);
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  font-family: 'Satisfy', cursive;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--cream);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--rose);
+  color: white;
+}
+
+footer {
+  font-size: 0.9rem;
+  padding-bottom: 20px;
+}
+
